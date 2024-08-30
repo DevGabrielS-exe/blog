@@ -18,7 +18,9 @@
                             <tr>
                                 <td>{{$value->id }}</td>
                                 <td>{{$value->nome }}</td>
-                                <td></td>
+                                <td>
+                                    <a class="btn btn-primary" href="{{ url('/categoria/' . $value->id) }}" role="button">Visualizar</a>
+                                </td>
                             </tr>
                         @endforeach
                     </table>
