@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
-                    <a class="btn btn-success" href="{{ url('/categoria/create') }}" role="button">Criar</a>
+                    <a class="btn btn-success" href="{{ url('/postagem/create') }}" role="button">Criar</a>
 
                     @if (@session('mensagem'))
                         <br>
@@ -25,22 +25,24 @@
                     <table>
                         <tr>
                             <th>ID</th>
-                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Título</th>
                             <th>Ações</th>
                         </tr>
 
-                        @foreach ($categorias as $value)
+                        @foreach ($postagens as $value)
                             <tr>
                                 <td>{{ $value->id }}</td>
-                                <td>{{ $value->nome }}</td>
+                                <td>{{ $value->categoria->nome }}</td>
+                                <td>{{ $value->titulo }}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="{{ url('/categoria/' . $value->id) }}"
+                                    <a class="btn btn-primary" href="{{ url('/postagem/' . $value->id) }}"
                                         role="button">Visualizar</a>
 
-                                    <a class="btn btn-warning" href="{{ url('/categoria/' . $value->id . '/edit') }}"
+                                    <a class="btn btn-warning" href="{{ url('/postagem/' . $value->id . '/edit') }}"
                                         role="button">Editar</a>
 
-                                    <form method="POST" action="{{ url('/categoria/' . $value->id) }}"
+                                    <form method="POST" action="{{ url('/postagem/' . $value->id) }}"
                                         onsubmit="return ConfirmDelete()">
                                         @method('DELETE')
                                         @csrf

@@ -326,7 +326,12 @@ return [
         [
             'text' => 'Categoria',
             'url' => 'categoria',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-rocket',
+        ],
+        [
+            'text' => 'Postagem',
+            'url' => 'postagem',
+            'icon' => 'fas fa-fw fa-camera',
         ],
         [
             'text' => 'profile',
