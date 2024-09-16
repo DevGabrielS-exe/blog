@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
 
                     @if($errors->any())
                         <div class="alert alert-danger">
@@ -18,9 +17,11 @@
 
                     @endif
 
+
                     <form method="POST" action="{{ URL('/categoria/' . $categoria->id) }}">
                         @method('PUT')
                         @csrf
+
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nome</label>

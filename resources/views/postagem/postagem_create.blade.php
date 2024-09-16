@@ -23,11 +23,10 @@
 
                         <div class="form-group">
                             <br>
-                            <label for="cars">Choose a car:</label>
-
+                            <label for="cars">Categoria:</label>
                             <select name="categoria_id" id="cars" class="form-control">
                                 @foreach ($categorias as $value)
-                                <option value="{{$value->id}}">{{$value->nome}}</option>
+                                    <option value="{{ $value->id }}">{{ $value->nome }}</option>
                                 @endforeach
                             </select>
                             <br>

@@ -5,7 +5,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
 
                     <p><strong>Categoria: </strong> {{$postagem->categoria->nome}} </p>
                     <p><strong>Título: </strong> {{$postagem->titulo}} </p>
