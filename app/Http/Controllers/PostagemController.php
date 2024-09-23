@@ -32,8 +32,13 @@ class PostagemController extends Controller
      */
     public function store(Request $request)
     {
+        //1-pegar conteudo do arquivo
+        $content = file_get_contents($request->file('imagem'));
+
         $validated = $request->validate([
             'categoria_id' => 'required',
+            //2-validar o tipo de arquivo
+            'imagem' => 'mimes:png,jpg,bmp',
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
         ]);
@@ -41,6 +46,8 @@ class PostagemController extends Controller
         $postagem = new Postagem();
         $postagem->categoria_id= $request->categoria_id;
         $postagem->user_id = Auth::id();
+        //3-converte paraa base64
+        $postagem->imagem = base64_encode($content);
         $postagem->titulo = $request->titulo;
         $postagem->conteudo = $request->conteudo;
         $postagem->save();
@@ -73,8 +80,13 @@ class PostagemController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        //1-pegar conteudo do arquivo
+        $content = file_get_contents($request->file('imagem'));
+
         $validated = $request->validate([
             'categoria_id' => 'required',
+            //2-validar o tipo de arquivo
+            'imagem' => 'mimes:png,jpg,bmp',
             'titulo' => 'required|min:5',
             'conteudo' => 'required|min:5',
         ]);
@@ -82,6 +94,8 @@ class PostagemController extends Controller
         $postagem = Postagem::find($id);
         $postagem->categoria_id= $request->categoria_id;
         $postagem->user_id = Auth::id();
+        //3-converte paraa base64
+        $postagem->imagem = base64_encode($content);
         $postagem->titulo = $request->titulo;
         $postagem->conteudo = $request->conteudo;
         $postagem->save();
